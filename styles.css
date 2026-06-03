@@ -20,6 +20,8 @@
   --font-script: "Caveat", cursive;
   --max-width: 1180px;
   --header-h: 72px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-duration: 0.75s;
 }
 
 *,
@@ -222,6 +224,11 @@ a:hover {
 
 .nav__menu a:hover {
   color: var(--green-deep);
+}
+
+.nav__menu a.is-active {
+  color: var(--green-deep);
+  font-weight: 600;
 }
 
 .nav__cta {
@@ -1375,5 +1382,144 @@ a:hover {
   .hero__stats {
     flex-direction: column;
     gap: 1rem;
+  }
+}
+
+/* Animations */
+.site-header {
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: var(--shadow);
+}
+
+.hero__visual img {
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+.hero__overlay > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero.is-ready .hero__overlay > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.hero.is-ready .hero__eyebrow { transition-delay: 0.1s; }
+.hero.is-ready .hero__title { transition-delay: 0.25s; }
+.hero.is-ready .hero__tagline { transition-delay: 0.4s; }
+.hero.is-ready .hero__sub { transition-delay: 0.55s; }
+
+.hero__panel-inner > * {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.hero.is-ready .hero__panel-inner > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.hero.is-ready .hero__stats { transition-delay: 0.65s; }
+.hero.is-ready .hero__lead { transition-delay: 0.8s; }
+.hero.is-ready .hero__panel .btn { transition-delay: 0.95s; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--reveal-duration) var(--ease-out),
+    transform var(--reveal-duration) var(--ease-out);
+}
+
+.reveal--left {
+  transform: translateX(-28px);
+}
+
+.reveal--right {
+  transform: translateX(28px);
+}
+
+.reveal--scale {
+  transform: scale(0.96);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+.reveal-group.is-visible .reveal {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+.actions__leaf {
+  display: inline-block;
+  animation: leaf-float 5s ease-in-out infinite;
+}
+
+.actions__leaf--right {
+  animation-delay: 1.2s;
+}
+
+@keyframes leaf-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(8deg);
+  }
+}
+
+.btn {
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s var(--ease-out),
+    box-shadow 0.2s;
+}
+
+.pillar,
+.action-card,
+.highlight,
+.team__member {
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+}
+
+.pillar:hover,
+.action-card:hover,
+.highlight:hover {
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__overlay > *,
+  .hero__panel-inner > *,
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero__visual img {
+    transform: none !important;
+  }
+
+  .actions__leaf {
+    animation: none;
+  }
+
+  .pillar:hover,
+  .action-card:hover,
+  .highlight:hover {
+    transform: none;
   }
 }
