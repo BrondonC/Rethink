@@ -105,12 +105,12 @@
       showHeroEnter();
     }
 
-    /* Fallback: show button after 7 seconds if video event didn't trigger */
+    /* Fallback: show button after 7.5 seconds if video event didn't trigger */
     setTimeout(() => {
       if (heroEnter && !heroEnter.classList.contains("is-visible")) {
         showHeroEnter();
       }
-    }, 7000);
+    }, 7500);
   }
 
   /* Page transition: index.html → hero.html */
