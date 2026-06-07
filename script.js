@@ -104,6 +104,13 @@
     if (heroVideo.readyState >= 1 && heroVideo.duration > 0 && heroVideo.currentTime >= heroVideo.duration) {
       showHeroEnter();
     }
+
+    /* Fallback: show button after 3 seconds if video event didn't trigger */
+    setTimeout(() => {
+      if (heroEnter && !heroEnter.classList.contains("is-visible")) {
+        showHeroEnter();
+      }
+    }, 3000);
   }
 
   /* Page transition: index.html → hero.html */
