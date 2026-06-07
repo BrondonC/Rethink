@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Blueseeds × RE-THINK — Plant the Future" />
-  <title>Blueseeds × RE-THINK</title>
+  <meta name="description" content="Blueseeds × RE-THINK — Plant the Future campaign" />
+  <title>Plant the Future | Blueseeds × RE-THINK</title>
   <link rel="icon" href="images/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,6 +14,34 @@
 </head>
 <body>
   <div id="page-transition-overlay" class="page-transition-overlay" aria-hidden="true"></div>
+  <script>
+    if (sessionStorage.getItem("pageTransition") === "intro-to-site") {
+      document.getElementById("page-transition-overlay").classList.add("is-active");
+    }
+  </script>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main">
+      <a class="nav__brand" href="#top">
+        <span class="nav__brand-text">Blueseeds</span>
+        <span class="nav__brand-x" aria-hidden="true">×</span>
+        <span class="nav__brand-text nav__brand-text--rethink">RE-THINK</span>
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#actions">Actions</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#event">Event</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a class="nav__cta" href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <main id="main">
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-title">
@@ -236,10 +264,10 @@
             <h2 id="event-spotlight-title" class="section-title">Event Spotlight</h2>
             <div class="event-spotlight__grid">
               <figure class="highlight">
-                <img src="images/beach.jpg" alt="Beach cleanup volunteers" width="400" height="400" loading="lazy" />
+                <img src="images/botol.png" alt="Blueseeds bottle return at a partner store" width="400" height="400" loading="lazy" />
                 <figcaption>
-                  <strong>Beach Cleanup Events</strong>
-                  <span>Monthly coastal cleanups with RE-THINK volunteers.</span>
+                  <strong>Bottle Return Event</strong>
+                  <span>Bring your empty Blueseeds bottles to partner stores, earn rewards, and help us recycle plastic into a cleaner future.</span>
                 </figcaption>
               </figure>
               <figure class="highlight">
@@ -365,11 +393,11 @@
           </li>
           <li class="team__member">
             <div class="team__photo">
-              <img src="images/stephanie.jpg" alt="Stephanie " width="400" height="500" loading="lazy" />
+              <img src="images/stephanie.jpg" alt="Stephanie" width="400" height="500" loading="lazy" />
               <div class="team__overlay" aria-hidden="true"></div>
             </div>
             <div class="team__info">
-              <h3>Stephanie </h3>
+              <h3>Stephanie</h3>
               <p>Design &amp; Digital</p>
             </div>
           </li>
@@ -395,6 +423,42 @@
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__upper">
+      <p class="site-footer__quote">Beauty shouldn’t cost the earth.</p>
+      <p class="site-footer__slogan">
+        <span aria-hidden="true">🌿</span>
+        Small Acts, Big Impact. Plant the Future Together.
+        <span aria-hidden="true">🌿</span>
+      </p>
+      <div class="site-footer__social">
+        <p>Learn more &amp; follow our journey</p>
+      </div>
+    </div>
+    <div class="site-footer__bar">
+      <p>Blueseeds × RE-THINK | For People. For Nature. For Tomorrow.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <button class="lightbox__backdrop" type="button" aria-label="Close image preview" data-lightbox-close></button>
+    <div class="lightbox__dialog">
+      <button class="lightbox__close" type="button" aria-label="Close" data-lightbox-close>&times;</button>
+      <img class="lightbox__img" src="" alt="" />
+      <p class="lightbox__caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <a
+    class="instagram-float"
+    href="https://www.instagram.com/blueseeds.rethink?igsh=dG1nYXVlamhiNjkw"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Follow Blueseeds × RE-THINK on Instagram"
+  >
+    <img src="images/ig.png" alt="" width="52" height="52" />
+  </a>
 
   <script src="script.js"></script>
 </body>

@@ -20,6 +20,13 @@ npx serve .
 
 Then visit the URL shown in the terminal (e.g. `http://localhost:3000`).
 
+## Pages
+
+| File | Purpose |
+|------|---------|
+| `index.html` | **Entry point** — fullscreen intro video (`images/video.mp4`) + Enter site |
+| `hero.html` | Full campaign site — hero panel, highlights, team, join form |
+
 ## Project contents
 
 - Hero and campaign overview (June 8 – July 8, 2026)
@@ -30,4 +37,4 @@ Then visit the URL shown in the terminal (e.g. `http://localhost:3000`).
 
 ## Assets
 
-Place images in the `images/` folder (e.g. `logo.png`, team photos, campaign graphics) as referenced in `index.html`.
+Place images in the `images/` folder (e.g. `logo.png`, `video.mp4`, team photos, campaign graphics) as referenced in the HTML files.

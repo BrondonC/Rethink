@@ -53,15 +53,15 @@
   );
   updateHeader();
 
-  /* Hero entrance */
-  const hero = document.querySelector(".hero");
+  /* Hero entrance (panel hero on hero.html) */
+  const hero = document.querySelector(".hero:not(.hero--fullscreen)");
   if (hero) {
     requestAnimationFrame(() => {
       hero.classList.add("is-ready");
     });
   }
 
-  /* Subtle hero parallax */
+  /* Subtle hero parallax (hero.html campaign page) */
   const heroImg = document.querySelector(".hero__visual img");
   let parallaxTicking = false;
 
@@ -86,6 +86,63 @@
     );
     updateParallax();
   }
+
+  /* Hero video — show enter button when finished */
+  const heroVideo = document.querySelector(".hero__video-full");
+  const heroEnter = document.querySelector(".hero__enter");
+
+  function showHeroEnter() {
+    if (!heroEnter) return;
+    heroEnter.classList.add("is-visible");
+    heroEnter.setAttribute("aria-hidden", "false");
+    heroEnter.removeAttribute("tabindex");
+  }
+
+  if (heroVideo && heroEnter) {
+    heroVideo.addEventListener("ended", showHeroEnter);
+
+    if (heroVideo.readyState >= 1 && heroVideo.duration > 0 && heroVideo.currentTime >= heroVideo.duration) {
+      showHeroEnter();
+    }
+  }
+
+  /* Page transition: index.html → hero.html */
+  const pageOverlay = document.getElementById("page-transition-overlay");
+  const transitionMs = prefersReducedMotion ? 150 : 700;
+
+  function fadeInCampaignPage() {
+    if (!pageOverlay) return;
+    sessionStorage.removeItem("pageTransition");
+    requestAnimationFrame(() => {
+      pageOverlay.classList.remove("is-active");
+      pageOverlay.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  function navigateWithTransition(href) {
+    if (!pageOverlay) {
+      window.location.href = href;
+      return;
+    }
+    pageOverlay.classList.add("is-active");
+    pageOverlay.setAttribute("aria-hidden", "false");
+    sessionStorage.setItem("pageTransition", "intro-to-site");
+    window.setTimeout(() => {
+      window.location.href = href;
+    }, transitionMs);
+  }
+
+  if (pageOverlay && sessionStorage.getItem("pageTransition") === "intro-to-site" && heroEnter === null) {
+    pageOverlay.setAttribute("aria-hidden", "false");
+    window.addEventListener("load", () => {
+      window.setTimeout(fadeInCampaignPage, prefersReducedMotion ? 0 : 80);
+    });
+  }
+
+  heroEnter?.addEventListener("click", (e) => {
+    e.preventDefault();
+    navigateWithTransition(e.currentTarget.href);
+  });
 
   /* Scroll reveal */
   const revealConfig = [
@@ -129,35 +186,122 @@
   if (prefersReducedMotion) {
     revealElements.forEach((el) => el.classList.add("is-visible"));
     document.querySelectorAll(".reveal-group").forEach((g) => g.classList.add("is-visible"));
-    return;
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const target = entry.target;
+          const visible = entry.isIntersecting;
+
+          target.classList.toggle("is-visible", visible);
+
+          if (target.classList.contains("reveal-group")) {
+            target.querySelectorAll(".reveal").forEach((child) => {
+              child.classList.toggle("is-visible", visible);
+            });
+          }
+        });
+      },
+      { root: null, rootMargin: "0px 0px -10% 0px", threshold: 0.15 }
+    );
+
+    const observed = new Set();
+    revealElements.forEach((el) => {
+      const target = el.classList.contains("reveal") && el.parentElement?.classList.contains("reveal-group")
+        ? el.parentElement
+        : el;
+      if (!observed.has(target)) {
+        observed.add(target);
+        observer.observe(target);
+      }
+    });
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const target = entry.target;
-        const visible = entry.isIntersecting;
+  /* Image lightbox */
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox?.querySelector(".lightbox__img");
+  const lightboxCaption = lightbox?.querySelector(".lightbox__caption");
+  const lightboxCloseButtons = lightbox?.querySelectorAll("[data-lightbox-close]");
+  let lastFocused = null;
 
-        target.classList.toggle("is-visible", visible);
+  function getCaption(figure) {
+    const title = figure?.querySelector("figcaption strong")?.textContent?.trim();
+    const text = figure?.querySelector("figcaption span")?.textContent?.trim();
+    if (title && text) return `<strong>${title}</strong>${text}`;
+    if (title) return `<strong>${title}</strong>`;
+    return "";
+  }
 
-        if (target.classList.contains("reveal-group")) {
-          target.querySelectorAll(".reveal").forEach((child) => {
-            child.classList.toggle("is-visible", visible);
-          });
-        }
-      });
-    },
-    { root: null, rootMargin: "0px 0px -10% 0px", threshold: 0.15 }
-  );
+  function openLightbox(img) {
+    if (!lightbox || !lightboxImg) return;
 
-  const observed = new Set();
-  revealElements.forEach((el) => {
-    const target = el.classList.contains("reveal") && el.parentElement?.classList.contains("reveal-group")
-      ? el.parentElement
-      : el;
-    if (!observed.has(target)) {
-      observed.add(target);
-      observer.observe(target);
+    lastFocused = document.activeElement;
+    const figure = img.closest("figure");
+    const member = img.closest(".team__member");
+    const caption = getCaption(figure);
+    const name = member?.querySelector(".team__info h3")?.textContent?.trim();
+    const role = member?.querySelector(".team__info p")?.textContent?.trim();
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt || "";
+
+    if (lightboxCaption) {
+      if (caption) {
+        lightboxCaption.innerHTML = caption;
+      } else if (name) {
+        lightboxCaption.innerHTML = `<strong>${name}</strong>${role || ""}`;
+      } else {
+        lightboxCaption.textContent = img.alt || "";
+      }
+      lightboxCaption.hidden = !lightboxCaption.textContent;
+    }
+
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(() => lightbox.classList.add("is-open"));
+    lightbox.querySelector(".lightbox__close")?.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox || !lightboxImg) return;
+
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    window.setTimeout(() => {
+      if (!lightbox.classList.contains("is-open")) {
+        lightbox.hidden = true;
+        lightboxImg.removeAttribute("src");
+      }
+    }, 300);
+
+    lastFocused?.focus();
+    lastFocused = null;
+  }
+
+  document.querySelectorAll(".highlight img, .team__photo img").forEach((img) => {
+    img.setAttribute("tabindex", "0");
+    img.setAttribute("role", "button");
+    img.setAttribute("aria-label", `View larger image: ${img.alt || "campaign photo"}`);
+
+    img.addEventListener("click", () => openLightbox(img));
+    img.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openLightbox(img);
+      }
+    });
+  });
+
+  lightboxCloseButtons?.forEach((btn) => {
+    btn.addEventListener("click", closeLightbox);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox && !lightbox.hidden) {
+      closeLightbox();
     }
   });
 
