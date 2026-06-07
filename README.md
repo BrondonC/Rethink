@@ -37,4 +37,4 @@ Then visit the URL shown in the terminal (e.g. `http://localhost:3000`).
 
 ## Assets
 
-Place images in the `images/` folder (e.g. `logo.png`, `video.mp4`, team photos, campaign graphics) as referenced in the HTML files.
+Place images in the `images/` folder (e.g. `logo.png`, `video.mp4`, team photos, campaign graphics) as referenced in the HTML files
