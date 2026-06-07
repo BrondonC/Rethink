@@ -278,6 +278,14 @@ a:hover {
   background: var(--green-deep);
 }
 
+.intro-page {
+  overflow: hidden;
+}
+
+.intro-page .hero--fullscreen {
+  height: 100vh;
+}
+
 .hero__video-full {
   position: absolute;
   inset: 0;
