@@ -53,7 +53,7 @@
   );
   updateHeader();
 
-  /* Hero entrance (panel hero on hero.html) */
+  /* Hero entrance (panel hero on campaign page) */
   const hero = document.querySelector(".hero:not(.hero--fullscreen)");
   if (hero) {
     requestAnimationFrame(() => {
@@ -61,7 +61,7 @@
     });
   }
 
-  /* Subtle hero parallax (hero.html campaign page) */
+  /* Subtle hero parallax (campaign page) */
   const heroImg = document.querySelector(".hero__visual img");
   let parallaxTicking = false;
 
@@ -113,7 +113,7 @@
     }, 7500);
   }
 
-  /* Page transition: index.html → hero.html */
+  /* Page transition: index → campaign */
   const pageOverlay = document.getElementById("page-transition-overlay");
   const transitionMs = prefersReducedMotion ? 150 : 700;
 

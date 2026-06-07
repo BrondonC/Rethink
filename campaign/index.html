@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blueseeds × RE-THINK — Plant the Future campaign" />
+  <title>Plant the Future | Blueseeds × RE-THINK</title>
+  <link rel="icon" href="../images/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div id="page-transition-overlay" class="page-transition-overlay" aria-hidden="true"></div>
+  <script>
+    if (sessionStorage.getItem("pageTransition") === "intro-to-site") {
+      document.getElementById("page-transition-overlay").classList.add("is-active");
+    }
+  </script>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main">
+      <a class="nav__brand" href="../">
+        <span class="nav__brand-text">Blueseeds</span>
+        <span class="nav__brand-x" aria-hidden="true">×</span>
+        <span class="nav__brand-text nav__brand-text--rethink">RE-THINK</span>
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#actions">Actions</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#event">Event</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a class="nav__cta" href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__visual">
+        <img
+          src="../images/tree.jpg"
+          alt="Clear stream flowing over mossy rocks in a Taiwan forest"
+          width="1600"
+          height="900"
+          fetchpriority="high"
+        />
+        <div class="hero__overlay">
+          <p class="hero__eyebrow">Blueseeds × RE-THINK</p>
+          <h1 id="hero-title" class="hero__title">
+            Plant the Future
+            <span class="hero__leaf" aria-hidden="true">🌿</span>
+          </h1>
+          <p class="hero__tagline">Return Beauty to Nature</p>
+          <p class="hero__sub">A green journey for a better tomorrow</p>
+        </div>
+        <svg class="hero__tear" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+          <path fill="var(--green-deep)" d="M0,40 Q360,80 720,35 T1440,45 L1440,80 L0,80 Z"/>
+        </svg>
+      </div>
+
+      <div class="hero__panel">
+        <div class="container hero__panel-inner">
+          <div class="hero__stats">
+            <div>
+              <span class="hero__stat-label">Campaign</span>
+              <strong>June 8 – July 8, 2026</strong>
+            </div>
+            <div>
+              <span class="hero__stat-label">Focus</span>
+              <strong>Taiwan · Plastic-free beauty</strong>
+            </div>
+          </div>
+          <p class="hero__lead">
+            Together, we can make a difference. Join Blueseeds and RE-THINK in protecting Taiwan’s
+            oceans, land, and communities — turning daily self-care into lasting environmental action.
+          </p>
+          <a class="btn btn--primary" href="#join">Join the movement</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Issue & alignment -->
+    <section class="issue" id="about" aria-labelledby="issue-title">
+      <div class="container issue__grid">
+        <div class="issue__copy">
+          <p class="section-eyebrow">Social / Environmental Issue</p>
+          <h2 id="issue-title" class="section-title">Plastic pollution starts in the bathroom</h2>
+          <p>
+            Single-use bottles and personal care waste are a growing burden on Taiwan’s coastlines,
+            rivers, and farmland. Small daily habits add up — but so can small changes.
+          </p>
+          <p>
+            Blueseeds already champions natural farming, biodegradable ingredients, and
+            sustainable production. Partnering with RE-THINK extends that mission from product
+            to participation: education, refill culture, and hands-on community care.
+          </p>
+          <blockquote class="issue__quote">
+            <p>Beauty should leave a fragrance, not a footprint.</p>
+            <cite>— Campaign ethos</cite>
+          </blockquote>
+        </div>
+        <div class="issue__visual">
+          <img
+            src="../images/earth.jpg"
+            width="800"
+            height="600"
+            loading="lazy"
+          />
+          <div class="issue__badge">
+            <span class="issue__badge-icon" aria-hidden="true">🌱</span>
+            <p>Everyone is welcome!<br />Let’s plant the future together.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Campaign concept -->
+    <section class="concept" aria-labelledby="concept-title">
+      <div class="container">
+        <header class="concept__header">
+          <p class="section-eyebrow">Campaign Concept</p>
+          <h2 id="concept-title" class="section-title section-title--center">
+            Plant the Future:<br />
+            <em>Return Beauty to Nature</em>
+          </h2>
+          <p class="concept__intro">
+            A nationwide PR campaign encouraging consumers to reduce plastic waste while
+            reconnecting with Taiwan’s natural environment through sustainable lifestyle habits.
+          </p>
+        </header>
+        <ul class="pillars">
+          <li class="pillar">
+            <span class="pillar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+            </span>
+            <h3>Environmental education</h3>
+            <p>Workshops and talks that make waste visible — and solutions practical.</p>
+          </li>
+          <li class="pillar">
+            <span class="pillar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v6m0 8v6M8 8l4 4 4-4M8 16l4-4 4 4"/><rect x="6" y="4" width="12" height="16" rx="2"/></svg>
+            </span>
+            <h3>Refill culture</h3>
+            <p>Nationwide refill stations and bottle-return rewards across partner stores.</p>
+          </li>
+          <li class="pillar">
+            <span class="pillar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <h3>Community participation</h3>
+            <p>Beach and mountain cleanups with volunteers of every age and background.</p>
+          </li>
+          <li class="pillar">
+            <span class="pillar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 12h8M12 8v8"/></svg>
+            </span>
+            <h3>Social storytelling</h3>
+            <p>Share your green journey with #PlantTheFuture and inspire others to act.</p>
+          </li>
+          <li class="pillar">
+            <span class="pillar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <h3>Hands-on eco experiences</h3>
+            <p>Planting herbs, pledge walls, and pop-up labs that turn learning into doing.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3 Key Actions -->
+    <section class="actions" id="actions" aria-labelledby="actions-title">
+      <div class="container">
+        <header class="actions__header">
+          <span class="actions__leaf" aria-hidden="true">🍃</span>
+          <h2 id="actions-title" class="section-title section-title--center">Our 3 Key Actions</h2>
+          <span class="actions__leaf actions__leaf--right" aria-hidden="true">🍃</span>
+        </header>
+        <div class="actions__grid">
+          <article class="action-card">
+            <div class="action-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8h16v32H16z"/><path d="M20 14h8M20 22h8"/></svg>
+            </div>
+            <span class="action-card__num">01</span>
+            <h3>Bring Back Your Bottle</h3>
+            <p>
+              Return your empty Blueseeds bottles to partner stores. Earn rewards, support
+              donations, and keep plastic in the loop — not in the ocean.
+            </p>
+          </article>
+          <article class="action-card">
+            <div class="action-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 8c-8 12-16 16-16 24a16 16 0 0 0 32 0c0-8-8-12-16-24z"/><path d="M24 32v8"/></svg>
+            </div>
+            <span class="action-card__num">02</span>
+            <h3>Clean Up, Green Up</h3>
+            <p>
+              Join beach and mountain cleanups and hands-on eco activities across Taiwan.
+              Together for cleaner oceans, healthier land, and a brighter future.
+            </p>
+          </article>
+          <article class="action-card">
+            <div class="action-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 40V20M24 20c-6-8-14-8-14-2s8 10 14 2M24 20c6-6 14-6 14 0s-8 10-14 2"/><path d="M8 40h32"/></svg>
+            </div>
+            <span class="action-card__num">03</span>
+            <h3>One Bottle = One Herb</h3>
+            <p>
+              Every purchase supports local herb farmers and land restoration. Scan the QR
+              on your bottle to track the herb planted in your name.
+            </p>
+            <div class="action-card__qr" aria-label="QR code placeholder for herb tracking">
+              <svg viewBox="0 0 80 80" aria-hidden="true">
+                <rect width="80" height="80" fill="#fff"/>
+                <rect x="8" y="8" width="24" height="24" fill="#2d4a32"/>
+                <rect x="48" y="8" width="24" height="24" fill="#2d4a32"/>
+                <rect x="8" y="48" width="24" height="24" fill="#2d4a32"/>
+                <rect x="40" y="40" width="8" height="8" fill="#2d4a32"/>
+                <rect x="56" y="48" width="16" height="8" fill="#2d4a32"/>
+                <rect x="48" y="56" width="8" height="16" fill="#2d4a32"/>
+              </svg>
+              <span>Track your herb</span>
+            </div>
+          </article>
+        </div>
+        <p class="actions__cta-text">Let’s turn daily choices into lasting change.</p>
+      </div>
+    </section>
+
+    <!-- Highlights + Event -->
+    <section class="highlights" id="highlights" aria-labelledby="highlights-title">
+      <div class="container highlights__layout">
+        <div class="highlights__content">
+          <div class="highlights__main">
+            <h2 id="highlights-title" class="section-title">Campaign Highlights</h2>
+            <div class="highlights__grid highlights__grid--two">
+              <figure class="highlight">
+                <img src="../images/refill.png" alt="Refill station with natural products" width="400" height="400" loading="lazy" />
+                <figcaption>
+                  <strong>Refill Stations Nationwide</strong>
+                  <span>Find Blueseeds refill points at partner retailers.</span>
+                </figcaption>
+              </figure>
+              <figure class="highlight">
+                <img src="../images/letter.png" alt="Handwritten note on paper" width="400" height="400" loading="lazy" />
+                <figcaption>
+                  <strong>Letters of Love</strong>
+                  <span>Write a pledge or thank-you to nature at our pledge wall.</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <aside class="event-spotlight" id="event" aria-labelledby="event-spotlight-title">
+            <h2 id="event-spotlight-title" class="section-title">Event Spotlight</h2>
+            <div class="event-spotlight__grid">
+              <figure class="highlight">
+                <img src="../images/botol.png" alt="Blueseeds bottle return at a partner store" width="400" height="400" loading="lazy" />
+                <figcaption>
+                  <strong>Bottle Return Event</strong>
+                  <span>Bring your empty Blueseeds bottles to partner stores, earn rewards, and help us recycle plastic into a cleaner future.</span>
+                </figcaption>
+              </figure>
+              <figure class="highlight">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80" alt="Herbs growing in a garden" width="400" height="400" loading="lazy" />
+                <figcaption>
+                  <strong>Support Local Farmers</strong>
+                  <span>Your purchase funds herb planting and soil restoration.</span>
+                </figcaption>
+              </figure>
+            </div>
+          </aside>
+        </div>
+
+        <div class="highlights__aside">
+          <aside class="event-details" aria-labelledby="event-title">
+            <h3 id="event-title">Self-Care, Self-Check, Self-Empower</h3>
+            <div class="event-details__body">
+              <ul class="event-details__meta">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  <span><strong>Date</strong> June 8, 2026 (Mon)</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span><strong>Time</strong> 10:00 – 13:00</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span><strong>Location</strong> Taipei Huashan 1914 Creative Park</span>
+                </li>
+              </ul>
+              <ul class="event-details__checks">
+                <li>Sustainable beauty experience</li>
+                <li>Raffle &amp; giveaways</li>
+                <li>Pledge Wall — share your green promise</li>
+                <li>Open to all!</li>
+              </ul>
+            </div>
+          </aside>
+
+          <aside class="event-reserve" aria-labelledby="event-reserve-title">
+            <div class="event-reserve__content">
+              <h3 id="event-reserve-title" class="event-reserve__title">Join us on June 8</h3>
+              <p class="event-reserve__text">Spaces are limited. Reserve your spot for the launch event at Huashan 1914.</p>
+            </div>
+            <a class="btn btn--primary" href="#join">Reserve your spot</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Together CTA -->
+    <section class="together" aria-labelledby="together-title">
+      <div class="together__visual">
+        <img
+          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80"
+          alt="Community members walking together outdoors"
+          width="1400"
+          height="500"
+          loading="lazy"
+        />
+        <div class="together__overlay">
+          <h2 id="together-title" class="together__headline">Together, we can make a difference</h2>
+          <p>Join Blueseeds × RE-THINK in protecting our beautiful Taiwan.</p>
+        </div>
+      </div>
+      <div class="together__footer-pillars">
+        <div class="container together__pillars">
+          <div>
+            <strong>Community Action</strong>
+          </div>
+          <div>
+            <strong>Environmental Education</strong>
+          </div>
+          <div>
+            <strong>Sustainable Lifestyle</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team" id="team" aria-labelledby="team-title">
+      <div class="container team__inner">
+        <div class="team__header">
+          <p class="section-eyebrow">Project Team</p>
+          <h2 id="team-title" class="section-title">The people behind Plant the Future</h2>
+          <p class="team__intro">
+            Four collaborators bringing together brand storytelling, environmental action, and community engagement for Blueseeds × RE-THINK.
+          </p>
+          <a class="btn btn--primary" href="#join">Work with us</a>
+        </div>
+        <ul class="team__grid">
+          <li class="team__member">
+            <div class="team__photo">
+              <img src="../images/brandone.jpg" alt="Brandone" width="400" height="500" loading="lazy" />
+              <div class="team__overlay" aria-hidden="true"></div>
+            </div>
+            <div class="team__info">
+              <h3>Brandone</h3>
+              <p>Campaign Lead</p>
+            </div>
+          </li>
+          <li class="team__member">
+            <div class="team__photo">
+              <img src="../images/kristina.jpg" alt="Kristina" width="400" height="500" loading="lazy" />
+              <div class="team__overlay" aria-hidden="true"></div>
+            </div>
+            <div class="team__info">
+              <h3>Kristina</h3>
+              <p>Brand &amp; Content</p>
+            </div>
+          </li>
+          <li class="team__member">
+            <div class="team__photo">
+              <img src="../images/tracy.jpg" alt="Tracy" width="400" height="500" loading="lazy" />
+              <div class="team__overlay" aria-hidden="true"></div>
+            </div>
+            <div class="team__info">
+              <h3>Tracy</h3>
+              <p>Community &amp; Events</p>
+            </div>
+          </li>
+          <li class="team__member">
+            <div class="team__photo">
+              <img src="../images/stephanie.jpg" alt="Stephanie" width="400" height="500" loading="lazy" />
+              <div class="team__overlay" aria-hidden="true"></div>
+            </div>
+            <div class="team__info">
+              <h3>Stephanie</h3>
+              <p>Design &amp; Digital</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Join -->
+    <section class="join" id="join" aria-labelledby="join-title">
+      <div class="container join__inner">
+        <div class="join__copy">
+          <h2 id="join-title" class="section-title">Plant the future with us</h2>
+          <p>
+            Sign up for campaign updates, cleanup schedules, and refill station maps.
+            Follow <strong>@blueseeds.rethink</strong> and tag <strong>#PlantTheFuture</strong>.
+          </p>
+        </div>
+        <form class="join__form" action="#" method="post">
+          <label class="sr-only" for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          <button class="btn btn--primary" type="submit">Join the movement</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__upper">
+      <p class="site-footer__quote">Beauty shouldn’t cost the earth.</p>
+      <p class="site-footer__slogan">
+        <span aria-hidden="true">🌿</span>
+        Small Acts, Big Impact. Plant the Future Together.
+        <span aria-hidden="true">🌿</span>
+      </p>
+      <div class="site-footer__social">
+        <p>Learn more &amp; follow our journey</p>
+      </div>
+    </div>
+    <div class="site-footer__bar">
+      <p>Blueseeds × RE-THINK | For People. For Nature. For Tomorrow.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <button class="lightbox__backdrop" type="button" aria-label="Close image preview" data-lightbox-close></button>
+    <div class="lightbox__dialog">
+      <button class="lightbox__close" type="button" aria-label="Close" data-lightbox-close>&times;</button>
+      <img class="lightbox__img" src="" alt="" />
+      <p class="lightbox__caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <a
+    class="instagram-float"
+    href="https://www.instagram.com/blueseeds.rethink?igsh=dG1nYXVlamhiNjkw"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Follow Blueseeds × RE-THINK on Instagram"
+  >
+    <img src="../images/ig.png" alt="" width="52" height="52" />
+  </a>
+
+  <script src="../script.js"></script>
+</body>
+</html>

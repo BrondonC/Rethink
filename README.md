@@ -12,6 +12,13 @@ This repository is a **classroom / academic project** for a PR campaign proposal
 
 ## Run locally (preview)
 
+| URL | Page |
+|-----|------|
+| `/Rethink/` | Intro video (`index.html`) |
+| `/Rethink/campaign/` | Full campaign site (`campaign/index.html`) |
+
+Legacy `hero.html` redirects to `/campaign/`.
+
 Open `index.html` in a browser, or serve the folder:
 
 ```bash
@@ -24,8 +31,9 @@ Then visit the URL shown in the terminal (e.g. `http://localhost:3000`).
 
 | File | Purpose |
 |------|---------|
-| `index.html` | **Entry point** — fullscreen intro video (`images/video.mp4`) + Enter site |
-| `hero.html` | Full campaign site — hero panel, highlights, team, join form |
+| `index.html` | Entry point — fullscreen intro video |
+| `campaign/index.html` | Full campaign site |
+| `hero.html` | Redirect to `campaign/` (legacy link) |
 
 ## Project contents
 
